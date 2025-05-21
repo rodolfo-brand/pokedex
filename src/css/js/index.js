@@ -19,4 +19,23 @@ vamos precisar trabalhar com um evento de clique feito pelo usuário na listagem
 // precisamos criar duas variáveis no JS pra trabalhar com os elementos da tela
 const listaSelecaoPokemons = document.querySelectorAll('.pokemon')
 
-// No momento, este script apenas seleciona os elementos. A lógica de clique será adicionada nos próximos commits.
+listaSelecaoPokemons.forEach(pokemon => {
+    //vamos precisar trabalhar com um evento de clique feito pelo usuário na listagem de pokémons
+
+    pokemon.addEventListener('click', () => {
+        //remover a classe aberto só do cartão que está aberto
+        const cartaoPokemonAberto = document.querySelector('.aberto')        
+        cartaoPokemonAberto.classList.remove('aberto')
+
+        //ao clicar em um pokémon da listagem pegamos o id desse pokémon pra saber qual cartão mostrar
+        const idPokemonSelecionado = pokemon.attributes.id.value
+
+        const idDoCartaoPokemonParaAbrir = 'cartao-' + idPokemonSelecionado
+        const cartaoPokemonParaAbrir = document.getElementById(idDoCartaoPokemonParaAbrir)
+        cartaoPokemonParaAbrir.classList.add('aberto')
+
+        // As próximas duas linhas serão adicionadas no próximo commit
+        //remover a classe ativo que marca o pokémon selecionado
+        //adicionar a classe ativo no item da lista selecionado 
+    })
+})
